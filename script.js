@@ -299,3 +299,7 @@ if (mq.matches) {
   world.classList.add('colorful');
   revealBtn.classList.add('show');
 }
+
+document.getElementById('reset-btn').addEventListener('click', () => {
+  window.location.reload();
+});
