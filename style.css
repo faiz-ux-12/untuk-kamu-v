@@ -235,14 +235,66 @@ h1{
   background:none; border:none; cursor:pointer; text-decoration:underline;
 }
 
-@media (max-width:420px){
-  .layer{ padding:6vh 6vw; }
-  h1{ font-size:clamp(1.5rem, 6.5vw, 2.1rem); }
-  .sheet{ padding:32px 20px 36px; width:100vw; border-radius:18px 18px 0 0; }
-  .sheet h2{ font-size:1.3rem; }
-  .polaroid{ width:128px; }
-}
+/* Penyesuaian Layar Mobile/HP (Anti Terpotong) */
+@media screen and (max-width: 600px) {
+  /* 1. Mencegah layar bergeser ke samping / mentok pinggir */
+  body, .layer {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    box-sizing: border-box;
+  }
 
-@media (prefers-reduced-motion: reduce){
-  #world, .btn, #memoriesScene, #farewellLayer{ transition:none !important; }
+  /* 2. Memastikan judul utama menyesuaikan layar dan tidak terpotong */
+  h1 {
+    font-size: clamp(1.4rem, 7vw, 2rem) !important;
+    max-width: 100% !important; /* Menghilangkan batas lebar karakter */
+    line-height: 1.3 !important;
+    word-wrap: break-word;
+  }
+
+  /* 3. Menyesuaikan lembar cerita (Babak 2) agar teks muat semua */
+  .sheet {
+    width: 100% !important;
+    max-height: 90vh !important; /* Ruang lebih luas untuk scroll teks */
+    padding: 24px 16px 36px !important;
+    border-radius: 16px 16px 0 0 !important;
+  }
+
+  .sheet h2 {
+    font-size: 1.3rem !important;
+    max-width: 100% !important;
+  }
+
+  .sheet p, .fw-sub {
+    font-size: 0.95rem !important;
+    max-width: 100% !important; /* Teks penjelasan bisa menyebar penuh */
+  }
+
+  /* 4. Galeri Foto: Ubah dari geser samping ke susun bawah (vertikal) */
+  .gallery {
+    display: flex;
+    flex-direction: column !important; /* Susun ke bawah agar tidak terpotong */
+    align-items: center;
+    gap: 24px;
+    padding-bottom: 24px;
+  }
+
+  .polaroid {
+    width: 100% !important;
+    max-width: 280px; /* Lebar foto proporsional untuk HP */
+    transform: none !important; /* Menghilangkan kemiringan agar lebih rapi di HP */
+  }
+
+  .polaroid .frame {
+    aspect-ratio: 4 / 5; /* Menjaga foto potret tetap tegak dan rapi */
+  }
+
+  /* 5. Tombol lebih responsif untuk jari */
+  .btn, .btn-dark {
+    width: 100% !important;
+    max-width: 280px; /* Tidak terlalu memanjang */
+    padding: 14px 20px;
+    font-size: 0.9rem;
+    white-space: normal; /* Mencegah teks tombol terpotong jika panjang */
+  }
 }
