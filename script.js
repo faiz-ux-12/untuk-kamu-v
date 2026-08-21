@@ -224,8 +224,8 @@ fetch('foto.json')
    pengguna, jadi browser lebih mengizinkan audio jalan).
    Kalau API gagal dimuat, otomatis jatuh ke player biasa.
    ========================================================= */
-const SPOTIFY_TRACK_URI = 'spotify:track:2yhAtx8uyIKRnxLX3ftu8I';
-const SPOTIFY_TRACK_ID  = '2yhAtx8uyIKRnxLX3ftu8I';
+const SPOTIFY_TRACK_URI = 'spotify:track:2rbDhOo9Fh61Bbu23T2qCk';
+const SPOTIFY_TRACK_ID = '2rbDhOo9Fh61Bbu23T2qCk';
 let spotifyController = null;
 
 window.onSpotifyIframeApiReady = (IFrameAPI) => {
