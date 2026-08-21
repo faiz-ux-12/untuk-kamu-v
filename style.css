@@ -216,10 +216,18 @@ h1{
 .btn-dark:hover{ opacity:.85; transform:translateY(-1px); }
 
 /* ===== SCENE: FAREWELL (Babak 3) ===== */
-#farewellLayer{
-  z-index:15; opacity:0; pointer-events:none; transition:opacity 2.5s ease;
+#farewellLayer {
+  z-index: 2; /* Diubah dari 15 ke 2 agar posisinya di bawah tombol intro */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 2.5s ease;
 }
-#farewellLayer.show{ opacity:1; pointer-events:auto; }
+
+#farewellLayer.show {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 15; /* Kembali naik ke atas hanya saat babak 3 muncul */
+}
 #farewellLayer h1{ max-width:16ch; }
 .fw-sub{
   color:rgba(255,255,255,.85);
