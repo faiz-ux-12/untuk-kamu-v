@@ -243,66 +243,110 @@ h1{
   background:none; border:none; cursor:pointer; text-decoration:underline;
 }
 
-/* Penyesuaian Layar Mobile/HP (Anti Terpotong) */
-@media screen and (max-width: 600px) {
-  /* 1. Mencegah layar bergeser ke samping / mentok pinggir */
-  body, .layer {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+/* ==========================================
+   TAMPILAN MOBILE ELEGAN, TRANSPARAN & PAS
+   ========================================== */
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Intro & Farewell */
+  .layer {
+    padding: 16px !important;
+    text-align: center;
     box-sizing: border-box;
   }
 
-  /* 2. Memastikan judul utama menyesuaikan layar dan tidak terpotong */
-  h1 {
-    font-size: clamp(1.4rem, 7vw, 2rem) !important;
-    max-width: 100% !important; /* Menghilangkan batas lebar karakter */
-    line-height: 1.3 !important;
-    word-wrap: break-word;
+  .layer h1 {
+    font-size: 1.3rem !important;
+    line-height: 1.4 !important;
+    margin: 14px 0 20px !important;
   }
 
-  /* 3. Menyesuaikan lembar cerita (Babak 2) agar teks muat semua */
+  /* Lembar cerita (Babak 2) Efek Kaca Transparan & Kompak */
+  #memoriesScene {
+    padding: 14px 10px !important;
+    box-sizing: border-box;
+  }
+
   .sheet {
-    width: 100% !important;
-    max-height: 90vh !important; /* Ruang lebih luas untuk scroll teks */
-    padding: 24px 16px 36px !important;
-    border-radius: 16px 16px 0 0 !important;
+    background: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 16px !important;
+    padding: 20px 14px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
   }
 
   .sheet h2 {
-    font-size: 1.3rem !important;
-    max-width: 100% !important;
+    font-size: 1.2rem !important;
+    line-height: 1.4 !important;
   }
 
-  .sheet p, .fw-sub {
-    font-size: 0.95rem !important;
-    max-width: 100% !important; /* Teks penjelasan bisa menyebar penuh */
+  .sheet p {
+    font-size: 0.88rem !important;
+    line-height: 1.55 !important;
+    color: #2b2b2b;
   }
 
-  /* 4. Galeri Foto: Ubah dari geser samping ke susun bawah (vertikal) */
+  /* Galeri Foto Polaroid Proporsional */
   .gallery {
-    display: flex;
-    flex-direction: column !important; /* Susun ke bawah agar tidak terpotong */
-    align-items: center;
-    gap: 24px;
-    padding-bottom: 24px;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    align-items: center !important;
+    margin: 18px 0 !important;
   }
 
   .polaroid {
+    width: 85% !important;
+    max-width: 230px !important; /* Ukuran pas, tidak raksasa */
+    transform: none !important;
+    margin: 0 auto !important;
+    background: #ffffff !important;
+    padding: 8px 8px 12px 8px !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08) !important;
+  }
+
+  .polaroid img {
     width: 100% !important;
-    max-width: 280px; /* Lebar foto proporsional untuk HP */
-    transform: none !important; /* Menghilangkan kemiringan agar lebih rapi di HP */
+    height: auto !important;
+    aspect-ratio: 4 / 5 !important;
+    object-fit: cover !important;
+    border-radius: 3px !important;
   }
 
-  .polaroid .frame {
-    aspect-ratio: 4 / 5; /* Menjaga foto potret tetap tegak dan rapi */
+  .polaroid .caption {
+    font-size: 0.78rem !important;
+    margin-top: 8px !important;
   }
 
-  /* 5. Tombol lebih responsif untuk jari */
+  /* Tombol Presisi */
   .btn, .btn-dark {
+    width: 85% !important;
+    max-width: 250px !important;
+    padding: 12px 18px !important;
+    font-size: 0.85rem !important;
+    border-radius: 26px !important;
+  }
+
+  /* Quote & Spotify Widget */
+  .quote-line {
+    font-size: 0.82rem !important;
+    padding: 12px !important;
+    margin: 16px 0 !important;
+    background: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  .spotify-wrap {
     width: 100% !important;
-    max-width: 280px; /* Tidak terlalu memanjang */
-    padding: 14px 20px;
-    font-size: 0.9rem;
-    white-space: normal; /* Mencegah teks tombol terpotong jika panjang */
+    max-width: 290px !important;
+    margin: 0 auto 12px !important;
+    border-radius: 10px;
+    overflow: hidden;
   }
 }
